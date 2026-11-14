@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="0の体を保つ方法の、いつ何をするかを1日の順に出すガイド">
+<meta name="keywords" content="0の体, 一息, 椅子の7工程, 練習前の3分, 寝る前の3分, 稽古の夜, 稽古翌日, 寝不足の版">
+<meta name="author" content="Claude Code">
+<meta name="theme-color" content="#1f4e8c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>0の体 1日ガイド</title>
+<style>
+:root{--bg:#f3f5f8;--card:#fff;--ink:#172333;--muted:#55657a;--primary:#1f4e8c;--pri-ink:#fff;--border:#cfd7e1;--soft:#e8eef7;--next:#fff6dc;--next-b:#d6a419;--done:#7a8899;--warn:#a8402c;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11171f;--card:#1d2733;--ink:#e9eef4;--muted:#a9b6c5;--primary:#8fb8ff;--pri-ink:#10243f;--border:#3a4859;--soft:#24344a;--next:#3a3214;--next-b:#d9b13c;--done:#7f8c9b;--warn:#ff9f8a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11171f;--card:#1d2733;--ink:#e9eef4;--muted:#a9b6c5;--primary:#8fb8ff;--pri-ink:#10243f;--border:#3a4859;--soft:#24344a;--next:#3a3214;--next-b:#d9b13c;--done:#7f8c9b;--warn:#ff9f8a;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;overflow-x:hidden}
+main{max-width:600px;margin:0 auto;padding:12px 16px 120px}
+h1{font-size:1.3rem;margin:4px 0 2px;line-height:1.35}
+h2{font-size:1.12rem;margin:22px 0 8px;line-height:1.4}
+h3{font-size:1.02rem;margin:0 0 4px;line-height:1.45}
+p{margin:.45em 0}
+ol,ul{margin:.4em 0;padding-left:1.4em}
+li{margin:.25em 0}
+a{color:var(--primary)}
+button{font:inherit;min-height:44px;border-radius:10px;border:1px solid var(--primary);background:var(--card);color:var(--primary);padding:8px 14px;cursor:pointer;font-weight:600}
+button.on,button.pri{background:var(--primary);color:var(--pri-ink)}
+button.small{min-height:36px;padding:4px 10px;font-size:.92rem}
+input,textarea{font:inherit;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--ink);padding:8px;max-width:100%}
+textarea{width:100%;min-height:64px}
+.top{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 6px;border-bottom:1px solid var(--border)}
+.sub{color:var(--muted);font-size:.92rem}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.tabs button{padding:6px 2px;font-size:.95rem}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin:12px 0}
+.card.next{background:var(--next);border:2px solid var(--next-b)}
+.card.done{opacity:.62}
+.card.done h3{text-decoration:line-through;color:var(--done)}
+.when{font-size:.86rem;font-weight:700;color:var(--primary);letter-spacing:.02em}
+.badge{display:inline-block;font-size:.78rem;border:1px solid var(--border);border-radius:99px;padding:0 8px;margin-left:6px;color:var(--muted);font-weight:600;vertical-align:1px}
+.nexttag{display:inline-block;font-size:.8rem;background:var(--next-b);color:#1d1600;border-radius:6px;padding:0 8px;margin-bottom:4px;font-weight:700}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.grid3 button{padding:6px 4px}
+.note{color:var(--muted);font-size:.9rem}
+.banner{background:var(--soft);border-radius:12px;padding:12px 14px;margin:12px 0}
+.locked{opacity:.55}
+.sec{margin-top:18px;font-weight:700;color:var(--muted);font-size:.9rem;border-bottom:1px solid var(--border);padding-bottom:2px}
+details{margin:10px 0}
+summary{cursor:pointer;min-height:40px;font-weight:600;color:var(--primary)}
+.timer{position:fixed;left:0;right:0;bottom:0;background:var(--primary);color:var(--pri-ink);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;justify-content:space-between;gap:10px;z-index:9}
+.timer.show{display:flex}
+.timer b{font-size:1.6rem;font-variant-numeric:tabular-nums}
+.timer button{background:transparent;color:var(--pri-ink);border-color:var(--pri-ink)}
+.log{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.92rem}
+.wk td,.wk th{vertical-align:top}
+.day{border-left:4px solid var(--border);padding:6px 0 6px 10px;margin:8px 0}
+.day.today{border-left-color:var(--next-b)}
+.day b{display:inline-block;min-width:1.6em}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<main>
+<div class="top">
+  <h1 id="ttl">0の体 1日ガイド</h1>
+  <div class="sub" id="hdr"></div>
+  <div class="tabs" role="tablist">
+    <button data-tab="today" class="on">今日</button>
+    <button data-tab="week">1週間</button>
+    <button data-tab="hands">戻す手</button>
+    <button data-tab="log">記録</button>
+  </div>
+</div>
+<div id="view"></div>
+<details class="card">
+  <summary>止める時（いつでも）</summary>
+  <ul>
+    <li>痛み・しびれ・めまい・気持ち悪さ・強い不快が出たら、その場で止めて座る。</li>
+    <li>体が震えたら、止めて段階を下げる。</li>
+    <li>まっすぐ動かすだけで痛い時、力を入れなくても痛い時は、手順を当てずに専門家へ。</li>
+    <li>けがの直後で腫れや強い痛みがある所には触れない。稽古の後の指は特に。</li>
+    <li>片足立ちは、手の届く所に壁か机を置いてする。</li>
+    <li>速く深い呼吸を続けない。一息は1回、長く吐く息は楽な範囲で。</li>
+    <li>首を反らして横へ倒す形は使わない。</li>
+  </ul>
+  <p class="note">この手順は医療の代わりではありません。続く痛みや眠りの問題は、それ自体を相談してください。</p>
+</details>
+<p class="note" style="margin-top:20px">元の資料: 2026-11-14「0の体を朝から寝る前まで保つ方法」。回数・秒数・週の割り振りは資料で「私の目安」とした物で、まだ体で試していません。記録はこの端末の中だけに残ります。</p>
+</main>
+<div class="timer" id="timer"><span id="tlabel">タイマー</span><b id="tnum">0:00</b><button id="tstop" class="small">止める</button></div>
+
+<script>
+(function(){
+"use strict";
+var KEY="zero-body-guide-v1";
+var S=load();
+function load(){try{var t=localStorage.getItem(KEY);if(t){var o=JSON.parse(t);if(o&&typeof o==="object"){o.days=o.days||{};return o;}}}catch(e){}return {start:null,days:{}};}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+var WD=["日","月","火","水","木","金","土"];
+function key(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
+function parse(k){var p=k.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+function addDays(d,n){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()+n);return x;}
+function today(){return new Date();}
+function day(k){if(!S.days[k])S.days[k]={done:{}};if(!S.days[k].done)S.days[k].done={};return S.days[k];}
+function weekNo(d){if(!S.start)return 1;var diff=Math.floor((parse(key(d))-parse(S.start))/86400000);if(diff<0)return 0;return Math.floor(diff/7)+1;}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+
+/* ---------- 戻す手 ---------- */
+var HANDS=[
+ {id:"ikki",name:"一息",dur:"10秒",wk:1,where:"どこでも・人前・弾き始め",steps:["鼻から普通に吸う。","口をすぼめて「フー」と、吐く息が自然に終わる所まで細く吐く。","終わったら何もせず、次の吸う息が勝手に入ってくるのを待つ。","1回だけ。"],note:"弾き始めは、吐き始めてから弓を置く。弾いている間の息には触らない。"},
+ {id:"nigiru",name:"握って落とす",dur:"20秒",wk:4,where:"座って・楽器を持つ前",steps:["座って両手を腿の上に置く。","5秒、強く握る。","一度に開いて、手の重さを腿に落とす。","1回だけ。"],note:"指や手首に痛みがある日は使わない。5秒は私の量。"},
+ {id:"yubi",name:"指先の一点",dur:"30秒",wk:2,where:"立ったまま・舞台の袖・レッスン中",steps:["立ったまま、人さし指の先を机・譜面台・壁に置く。紙1枚を押さえる程度の軽さ。","そのまま3呼吸。","体重は預けない。"],note:"効いているのは支える力でなく、指先の触覚。"},
+ {id:"matsu",name:"待つ手",dur:"1分",wk:2,where:"座って・布団で",steps:["左の前腕を、右の手のひらで下から支える。押し上げない。","3呼吸のあいだ、左腕の重さが右手に乗ってくるのを待つ。","反対の腕も同じ。"],note:"生徒や共演者に触れる時の、支える手の準備にもなる。"},
+ {id:"isu",name:"椅子の7工程",dur:"1分",wk:1,where:"楽器を持つ前",steps:["車輪のない安定した椅子に、家で休む程度の楽さで座る。","足をほぼ平行にし、内側を拳一個ほど空け、足裏を床につける。","頭を下げながら尻を持ち上げる。骨盤が高くなってよい。","首、腰、背中を楽にし、腕を垂らす。背骨を能動的に丸めない。","折れた位置から、身体を整えようとせず、ゆっくり上がる。","まだ明らかに少し前にいる位置で、一度完全に停止する。","停止後は前傾を保持せず普通に立ち、そのまま外的課題へ移る（弾く）。"],note:"6の停止は完成の姿勢でなく途中の出来事。止まった形を持ち続けず、普通に立つ。"},
+ {id:"yuka",name:"床の1枚",dur:"約3分まで",wk:3,where:"朝と夜の床",steps:["仰向けで息を見て、下の条件に合う1つだけを選ぶ。どれにも当たらない時は何もしない。","終わったら同じ仰向けに戻り、息を1回見る。"],note:"3分は私の枠の長さで、体操の長さではない。",html:yukaHTML()},
+ {id:"aizu",name:"合図",dur:"3秒",wk:2,where:"どこでも",steps:["結ぶ: 練習前の3分で、7工程の後の録音の音が変わったと分かった直後に、合図を1つ重ねる。","選ぶ: 1人でも人前でも出せる物を1つ。胸に手のひらを当てて一息／弓を弦に置いて、弦をつかむ手触りを確かめる／開放弦Aを頭の中で鳴らす。","確かめる: 週に1回、7工程をせずに普段のまま1本録り、合図だけ出してもう1本録って聞き比べる。"],note:"崩れた状態には合図を結ばない。疲れた時に決まって言う言葉や仕草を作らない。"}
+];
+function H(id){for(var i=0;i<HANDS.length;i++)if(HANDS[i].id===id)return HANDS[i];}
+function yukaHTML(){return "<p><b>A 背中の運動</b>（Kou さん「疲労の考え方と予防・回復法」31:41）<br>当てはまる時: 背中側の動きが感じにくい。仰向けで苦痛なく息を見られる。座って背を丸める姿勢も無理なく取れる。<br>やり方: 座って指を組み、大きなボールを抱くように背中を丸める。胸を回して組んだ手を斜め前へ出し、手前側の背中が膨らむように息をする。肩は上げない。戻して反対側も。最後に横になって、始める前と息とゆるみを比べる。</p>"+
+"<p><b>B 6週間ポジション</b>（Kou さん「姿勢修正」48:00）<br>当てはまる時: 息をすると腰が反る感じがある。仰向けで足を掴む準備が苦痛なく取れる。<br>やり方: 仰向けで足を少し開き、おへそを自分の方へ向けて腰を床につける。顎を引き、足を掴んで近づける。腰と床の隙間をなくしたまま、吸ってお腹を膨らませ、吐いてお腹の筋肉を感じる。<br>止める: 首や股関節が痛む時、隙間をなくせない時。</p>"+
+"<p><b>C ふくらはぎの運動</b>（Kou さん「クールダウンLevel 0.5」7:13）<br>当てはまる時: ふくらはぎが疲れていて、息の動きは普段どおり。両膝を立てて脚を載せても息が止まらず苦痛がない。<br>やり方: できるだけ少ない力で両膝を立て、片膝に反対のふくらはぎを載せる。載せた脚の力を抜き、重みを使う。位置を上・中・下、内・外と変え、硬い所で止まる。揺すらない。逆の脚も。</p>"+
+"<p class='note'>動画の場所と映像のコマは、PDFの「稽古翌日の版」の後の3枚にあります。</p>";}
+
+function handCard(h,wk){
+  var locked=wk<h.wk;
+  var s="<div class='card"+(locked?" locked":"")+"'><h3>"+h.name+"<span class='badge'>"+h.dur+"</span>"+(locked?"<span class='badge'>"+h.wk+"週目から</span>":"")+"</h3><div class='note'>"+h.where+"</div><ol>";
+  for(var i=0;i<h.steps.length;i++)s+="<li>"+esc(h.steps[i])+"</li>";
+  s+="</ol>"+(h.html||"")+"<p class='note'>"+esc(h.note)+"</p></div>";
+  return s;
+}
+function handLink(id,wk){var h=H(id);if(!h||wk<h.wk)return "";return "<details><summary>"+h.name+"のやり方（"+h.dur+"）</summary><ol>"+h.steps.map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+"</ol>"+(h.html||"")+"<p class='note'>"+esc(h.note)+"</p></details>";}
+
+/* ---------- 今日の版 ---------- */
+function prevJkd(d){var y=day(key(addDays(d,-1)));return y.jkd===true;}
+function resolveVer(d){
+  var wk=weekNo(d),k=key(d),o=day(k);
+  if(prevJkd(d))return "稽古翌日";
+  if(wk<=1)return "1週目";
+  return o.ver||null;
+}
+
+/* ---------- 今日の項目 ---------- */
+function items(d){
+  var wk=Math.max(1,weekNo(d)),k=key(d),o=day(k),w=d.getDay(),ver=resolveVer(d),L=[];
+  var keiko=ver==="稽古翌日",nebu=ver==="寝不足",tsuu=(ver==="通常"||ver==="1週目");
+  var concert=!!o.concert;
+  function add(x){L.push(x);}
+  var mado="鼻から吸って、口から吐けるかを1回見る。引っかからずに出れば何もしない（5秒）。出ない・浅い・いつ吸ったか分からない、なら止まっていたと数えて、一息を1回。";
+
+  /* 朝 */
+  if(wk<=1){
+    add({id:"m1",sec:"朝",when:"布団で目が覚めた時（窓1）",title:"吐けるかを1回見る",dur:"5秒",body:"<p>起き上がる前に。"+mado+"</p><p>Polar の数字は、これを見た後に開く。</p>"+(keiko?"<p><b>今朝は稽古の翌朝。起きるのは07:45前後。</b></p>":""),hands:["ikki"],stop:true});
+  }else{
+    add({id:"m1",sec:"朝",when:"布団で目が覚めた時（窓1）",title:"布団の1分で、今日の版を決める",dur:"1分",tsec:60,body:"<p>起き上がる前に、仰向けのまま自分の息を1分見る。見るのは、胸とお腹のどちらが先に動くか、片方だけか、背中側が動くか、腰が反る感じがあるか。見るだけで、直さない。</p><p>次に版を決める（Polar の数字はその後に開く）。</p><ul><li>稽古のあった翌朝 → 稽古翌日の版（起きるのは07:45前後）</li><li>0時を過ぎて寝た朝、または片足立ち10秒（壁か机のそば・目を開けて左右）で、足のつき直しが普段より多い朝 → 寝不足の版</li><li>どちらでもない → 通常の版</li></ul>"+verButtons(d),hands:[]});
+  }
+  if(keiko&&wk>=3){
+    add({id:"m_yuka",sec:"朝",when:"起きてすぐ、床で",title:"床の3分（弱）",dur:"3分まで",tsec:180,body:"<p>仰向けで息を見て、床の1枚を選ぶ。頑張って伸ばさず、重みに任せる。どれにも当たらない、または疲れが強くてしたくない時は、何もしない。</p>",hands:["yuka"]});
+  }
+  add({id:"m_light",sec:"朝",when:"起きて30分以内",title:"外へ出て光を浴び、一息を1回",dur:"数分",body:"<p>心の中で「はい、今」と区切ってから一息。1日の錨で、どの曜日も同じ。"+(nebu?"<b>寝不足の日こそ省かない。</b>":"")+"</p>",hands:["ikki"]});
+  if((nebu||keiko)&&wk>=2){
+    add({id:"m_mizu",sec:"朝",when:"湯を沸かしている間",title:"水を1杯・食べ物を楽器ケースの横へ"+(keiko?"・一言":""),dur:"1分",body:"<p>コップ1杯の水を飲む。昼を抜きそうな日のために、すぐ口に入れられる物を楽器ケースの横に置く。"+(keiko?"身近な人に「今日は稽古の翌日の日」と一言伝える。":"")+"</p><p class='note'>寝不足と疲れが重なる日は、水・食事・人を自分からやめる方へ流れやすいため。</p>",hands:[]});
+  }
+  if(tsuu&&ver==="通常"&&wk>=3){
+    add({id:"m_stand",sec:"朝",when:"朝の支度の途中",title:"立って2分（中）",dur:"2分",tsec:120,body:"<ol><li>比べる動きを1回（椅子から1回立つ、または両腕を上げる）。</li><li>下の中身から、その日に1つだけ。</li><li>同じ比べる動きをもう1回。楽になった物を残し、変わらなくなったら替える。</li></ol>"+
+    "<p><b>骨盤おはようおやすみ</b>（腰の王子）: 安定した椅子に座り、骨盤のまわりに手を添えて、骨盤と体幹の前後の動きをする。比べるのは椅子から1回立つ。<a href='https://youtu.be/ln1XNexN7R4?t=30' target='_blank' rel='noopener'>動画 0:30</a></p>"+
+    "<p><b>ここからクルン</b>（腰の王子）: 片手を胸の上部に添え、反対の腕を外へ運ぶ。比べるのは両腕を上げる。<a href='https://youtu.be/i9TXOdh-g5E?t=33' target='_blank' rel='noopener'>動画 0:33</a>・<a href='https://youtu.be/niMvzA80qCk' target='_blank' rel='noopener'>反復用</a></p>"+
+    "<p><b>姿勢修正の腕の運動</b>（Kou さん「姿勢修正」54:02）: 腕を上げにくく、仰向けの息で腰が反る感じがあり、仰向けで腰を床に保てる朝だけ。膝を立てた仰向けで、おへそを自分へ向けて肋骨の下側を下ろす。吐く息で万歳（腰が反らず、お腹で制御できる所まで）、肘は伸ばしたまま吸って戻す。首や腰が痛い日は使わない。</p>"+
+    "<p class='note'>腰の王子の2つは、手の圧・動きの順・回数を元の動画で確かめてください。背中側が感じにくい朝と、息で腰が反る朝は、床の1枚を代わりに使えます。</p>",hands:["yuka"]});
+  }
+  if(nebu){
+    add({id:"m_nebu",sec:"朝",when:"朝のうちに",title:"片足立ちを1回見るだけ",dur:"20秒",body:"<p>寝不足の版では、立って2分の中身は入れない。片足立ち10秒（左右・壁か机のそば）を1回見るだけ。</p><p><b>今日の時間割:</b> 細かい左手の練習・新しい曲の譜読み・録音は午前へ。午後は全弓の開放弦と弾ける曲。</p><p class='note'>やらない事: 新しい体操を試さない。強い呼吸をしない。弾けない所を回数で押し切らない。</p>",hands:[]});
+  }
+
+  /* 楽器 */
+  var pr;
+  if(keiko){
+    pr="<p>"+(wk>=2?"練習前の3分（弱）を、下の形でする。":"")+"弾くのは<b>開放弦の全弓と、ゆっくりした音階だけ</b>。難所の細かい練習は土曜へ回す。</p><p>指に痛みや腫れが残っていたら、左手は使わず右手の全弓だけ。翌朝も残れば専門家に見せる。</p>"+(wk>=2?practiceSteps(wk,"弱"):"");
+  }else if(nebu){
+    pr="<ol><li>弾く前に、基準の録音を1回聞く。</li><li>椅子の7工程。</li><li>開放弦Aの全弓8拍を、後の1本だけ録る。</li><li>比べる相手は、7工程の前に頭の中で鳴らした音（通常の日の録音とは比べない）。</li>"+(wk>=2?"<li>合図を重ねる。</li>":"")+"</ol>";
+  }else{
+    pr=practiceSteps(wk,"中");
+  }
+  add({id:"p",sec:"楽器",when:"楽器ケースを開けて弓を張る時（窓2）",title:"練習前の3分"+(keiko?"（稽古翌日）":nebu?"（寝不足の版）":""),dur:"3分",tsec:180,body:"<p>その日最初に楽器を構える前に。心の中で「はい、今」と区切ってから。レッスンの日は生徒が来る前に済ませる。</p>"+pr,hands:["isu","ikki"]});
+
+  add({id:"l",sec:"日中",when:"生徒が部屋に入ってくる時（窓3）／レッスンが無い日は、譜面を最初にめくる時",title:"吐けるかを1回見る",dur:"5秒",body:"<p>"+mado+(wk>=2?"生徒の入れ替わりの間なら、譜面台に指先を置いて3呼吸でもよい。":"")+"</p>"+(wk>=2?"<details><summary>レッスンの最中にする4つ</summary><ul><li>生徒が弾き始める瞬間に、一緒に吐く。</li><li>見本を弾く時は、吐き始めてから弓を置く。</li><li>説明の区切りごとに一息を1回。</li><li>自分の息が止まったと気づいたら、それを合図に生徒の課題を一段易しくする。</li></ul><p class='note'>レッスンが続く日は、3人ごとに椅子の7工程を1回（私の目安）。1人の練習では、難所で息が止まる小節の頭に一息を置いて1回録る。</p></details>":""),hands:wk>=2?["ikki","yubi"]:["ikki"],stop:true});
+  add({id:"meal",sec:"日中",when:"食事の席を立つ時（窓4）",title:"吐けるかを1回見る",dur:"5秒",body:"<p>"+mado+"</p>",hands:["ikki"],stop:true});
+  if((nebu&&wk>=2)||(keiko&&wk>=4)){
+    add({id:"nap",sec:"日中",when:"13時〜16時のあいだ",title:"横になる",dur:"20〜90分の範囲",body:"<p>練習やレッスンの30分前には起きている所で切り上げる（選手の昼寝の研究のまとめの提案）。長さは楽な所で。</p>",hands:[]});
+  }
+
+  /* 稽古 */
+  if(o.jkd===true){
+    if(wk>=2){
+      add({id:"k_pre",sec:"稽古",when:"稽古の前",title:"稽古の前の3分（強）",dur:"3分",tsec:180,body:"<ol><li>両腕を上げて上げやすさを見る。片足立ち10秒を左右。</li><li>ここからクルンを左右。終わったら腕を振って前と比べる。</li><li>立って一息を1回。</li><li>いつもの構えから前へ1歩、後ろへ1歩を数本。構え直さずに出られるか。</li><li>同じ的へストレート10本。当たりの数が物差し。</li></ol><p class='note'>構えの形は変えない。稽古の最中は窓も手も使わず、先生の言葉と相手に注意を全部向ける。</p>",hands:["ikki"]});
+    }
+    add({id:"k_change",sec:"稽古",when:"道場で着替える時",title:"一息・疲れた所を1つ・指の確かめ",dur:"2分",body:"<ol><li>一息を1回。</li><li>いちばん疲れている所を1つ、言葉にする。</li><li>両手の指を1本ずつ曲げ伸ばしして、痛みや腫れが無いかを見る。</li></ol><p><b>明日の朝は07:45前後まで眠る。</b>アラームは今のうちに合わせる。就寝の時刻は無理に早めない。</p>",hands:["ikki"]});
+    if(wk>=3){
+      add({id:"k_floor",sec:"稽古",when:"家に着いて、床で",title:"床の3分",dur:"3分まで",tsec:180,body:"<p>仰向けで息を見て、床の1枚を選ぶ。頑張って伸ばさず、重みに任せる。</p>",hands:["yuka"]});
+    }
+  }
+
+  /* 夜 */
+  var bw=w===2||w===3;
+  if(bw&&wk>=4){
+    add({id:"borrow",sec:"夜",when:"今夜、布団に入る前",title:"布団を30〜60分だけ前へ（前借り）",dur:"",body:"<p>火曜と水曜にする。木曜の稽古の夜の前借り。22:15より前は狙わない。</p>",hands:[]});
+  }
+  if(wk<=1){
+    add({id:"bed",sec:"夜",when:"布団に入った時（窓5）",title:"吐けるかを1回見る",dur:"5秒",body:"<p>"+mado+"</p>",hands:["ikki"],stop:true});
+  }else{
+    add({id:"bed",sec:"夜",when:"布団に入った時（窓5）",title:"寝る前の3分（弱）",dur:"3分",tsec:180,body:"<p>「はい、今」と区切ってから。</p><ol><li>息を見る（1分）。朝と同じ所。胸とお腹のどちらが先か、背中側が動くか。</li><li>待つ手（1分）。左の前腕を右の手のひらで支えて3呼吸。反対も。</li><li>吐く方を長くした息（1分）。鼻から吸い、口から細く長く。数は数えない。</li><li>合図を1回出して終わる。</li></ol><p class='note'>眠れても眠れなくても、ここで終わり。眠れない夜に手順を足さない。</p>",hands:["matsu","aizu"]});
+  }
+  add({id:"rec",sec:"夜",when:"寝る前のどこかで",title:"1行の記録",dur:"30秒",body:"<p>"+(wk<=1?"窓で息が止まっていた回数（下のボタンで数えた数）と、金曜なら朝の体を一言。":"使った版、練習前の録音の一言、入ったと思えた日は丸。")+"</p>"+recForm(k,wk),hands:[]});
+  return L;
+}
+function practiceSteps(wk,s){return "<ol><li>開放弦Aの全弓を8拍録る。</li><li>椅子の7工程。</li><li>同じ音をもう一度録る。</li><li>聞き比べて一言書く（記録の欄へ）。</li>"+(wk>=2?"<li>音が変わったと分かった直後に、合図を重ねる。</li>":"")+"</ol><p class='note'>強さは"+s+"。"+(wk<=1?"1週目は合図をまだ結ばない。":"")+"</p>";}
+function verButtons(d){var k=key(d),o=day(k),v=prevJkd(d)?"稽古翌日":o.ver;return "<div class='grid3'>"+["通常","寝不足","稽古翌日"].map(function(x){return "<button class='small"+(v===x?" on":"")+"' data-ver='"+x+"'>"+x+"</button>";}).join("")+"</div>";}
+function recForm(k,wk){var o=day(k);return "<div class='row'><label style='flex:1;min-width:0'><textarea data-memo='"+k+"' placeholder='一言'>"+esc(o.memo||"")+"</textarea></label></div><div class='row'><button class='small"+(o.maru?" on":"")+"' data-maru='"+k+"'>"+(o.maru?"◯ 入った":"入った日は ◯")+"</button><span class='note'>止まった回数: "+(o.stops||0)+"</span></div>";}
+
+/* ---------- 画面 ---------- */
+var tab="today";
+function render(){
+  var d=today(),k=key(d),wk=weekNo(d),o=day(k),w=d.getDay();
+  document.getElementById("hdr").innerHTML=(d.getMonth()+1)+"月"+d.getDate()+"日（"+WD[w]+"）・"+(S.start?(wk<1?"始める前":wk+"週目"):"始める日が未設定");
+  var tabs=document.querySelectorAll(".tabs button");for(var i=0;i<tabs.length;i++)tabs[i].classList.toggle("on",tabs[i].getAttribute("data-tab")===tab);
+  var v=document.getElementById("view");
+  if(tab==="today")v.innerHTML=viewToday(d);
+  else if(tab==="week")v.innerHTML=viewWeek(d);
+  else if(tab==="hands")v.innerHTML=viewHands(d);
+  else v.innerHTML=viewLog();
+}
+/* 各まとまりが「次」の候補でいられる時刻の終わり（窓は動作に付くので、楽器は20時、日中の窓は18時まで候補） */
+var SEC_END={"朝":11,"楽器":20,"日中":18,"稽古":25,"夜":25};
+function viewToday(d){
+  var k=key(d),o=day(k),w=d.getDay(),wk=weekNo(d),s="";
+  if(!S.start){
+    s+="<div class='card next'><h3>始める日を決める</h3><p>最初の1週は3つだけ（5つの窓と一息・練習前の3分・稽古の夜と翌朝）。週ごとに足す物が増えます。</p><div class='row'><button class='pri' data-start='0'>今日から</button><button data-start='1'>明日から</button></div></div>";
+  }
+  var ver=resolveVer(d);
+  /* 曜日の問い */
+  if(w===4||o.jkd!==undefined){
+    s+="<div class='banner'><b>今日、稽古ある？</b><div class='row'><button class='small"+(o.jkd===true?" on":"")+"' data-jkd='1'>ある</button><button class='small"+(o.jkd===false?" on":"")+"' data-jkd='0'>ない</button></div></div>";
+  }
+  var y=day(key(addDays(d,-1)));
+  if(w===5&&y.jkd===undefined){
+    s+="<div class='banner'><b>昨夜、稽古あった？</b><div class='row'><button class='small' data-yjkd='1'>あった</button><button class='small' data-yjkd='0'>なかった</button></div></div>";
+  }
+  if(ver==="稽古翌日"){
+    s+="<div class='banner'><b>稽古翌日の版</b>（強さは弱）。起きるのは07:45前後。細かい技と体の負荷（筋力・走る・強い打ち込み）は入れない。難所の練習は土曜へ。</div>";
+  }else if(ver==="寝不足"){
+    s+="<div class='banner'><b>寝不足の版</b>（強さは弱）。種類は減らさず、量と強さを下げる。精度の要る仕事は午前、午後は全弓と弾ける曲。窓で止まっていたら、一息か指先の一点だけ。</div>";
+  }else if(ver==="1週目"){
+    s+="<div class='banner'><b>1週目</b>は版を選ばない。使う手は一息と椅子の7工程の2枚だけ。7日のうち3日しか出来なくても、やめずに次の週へ。</div>";
+  }else if(!ver){
+    s+="<div class='banner'>今日の版は、窓1（布団の1分）で決める。</div>";
+  }
+  if(w===6&&prevJkd(addDays(d,-1)))s+="<div class='banner'>今日は通常の版へ戻る日。<b>細かい練習（難所）はここで。</b></div>";
+  s+="<div class='row' style='margin-top:4px'><button class='small"+(o.concert?" on":"")+"' data-concert='1'>"+(o.concert?"演奏会の日 ✓":"今日は演奏会")+"</button></div>";
+  if(o.concert)s+=concertCard();
+
+  var L=items(d),hr=today().getHours(),nextId=null;
+  for(var i=0;i<L.length;i++){if(!o.done[L[i].id]&&SEC_END[L[i].sec]>hr){nextId=L[i].id;break;}}
+  if(!nextId)for(var j=0;j<L.length;j++)if(!o.done[L[j].id]){nextId=L[j].id;break;}
+  var cur="";
+  for(var n=0;n<L.length;n++){
+    var it=L[n],dn=!!o.done[it.id];
+    if(it.sec!==cur){cur=it.sec;s+="<div class='sec'>"+cur+"</div>";}
+    s+="<div class='card"+(it.id===nextId?" next":"")+(dn?" done":"")+"'>"+(it.id===nextId?"<span class='nexttag'>次はこれ</span>":"")+
+      "<div class='when'>"+esc(it.when)+"</div><h3>"+esc(it.title)+(it.dur?"<span class='badge'>"+esc(it.dur)+"</span>":"")+"</h3>"+it.body;
+    s+=(it.hands||[]).map(function(h){return handLink(h,Math.max(1,wk));}).join("");
+    s+="<div class='row'><button class='small"+(dn?" on":"")+"' data-done='"+it.id+"'>"+(dn?"済み ✓":"済んだ")+"</button>";
+    if(it.tsec)s+="<button class='small' data-timer='"+it.tsec+"' data-tl='"+esc(it.title)+"'>タイマー "+(it.tsec/60)+"分</button>";
+    if(it.stop)s+="<button class='small' data-stopc='1'>止まっていた（"+(o.stops||0)+"）</button>";
+    s+="</div></div>";
+  }
+  return s;
+}
+function concertCard(){return "<div class='card'><h3>演奏会の日の順番</h3><ol><li>前の2晩: 布団を30〜60分だけ前へ（前借り。22:15より前は狙わない）。</li><li>朝: その日の体に合う版で済ませる。基準の録音を1回聞く。新しい事は何もしない。</li><li>楽屋（3分・中）: 椅子の7工程、開放弦の1音、合図を1回。</li><li>袖（30秒・弱）: 壁に指先の一点を置いて3呼吸。共演者がいれば、肩甲骨の間に手のひらを置いて一緒に3回吐く（触れる前に必ず聞く）。</li><li>登場（10秒）: 客席を見て一息。吐き始めてから弓を置く。</li><li>曲間: 弓を上げて一息。</li><li>終演後: 着替える時に一息と、疲れた所を1つ。夜は稽古の夜と同じ手順。</li></ol></div>";}
+function viewWeek(d){
+  var wk=Math.max(1,weekNo(d)),w=d.getDay(),s="<h2>"+wk+"週目の1週間</h2>";
+  var rows=[
+   [1,"月","通常の版"],
+   [2,"火","通常の版"+(wk>=4?"。夜: 布団を30〜60分前へ（前借り。22:15より前は狙わない）":"")],
+   [3,"水","通常の版"+(wk>=4?"。夜: 布団を30〜60分前へ（前借り。22:15より前は狙わない）":"")],
+   [4,"木","稽古の日。"+(wk>=2?"稽古の前3分（強）。":"")+"着替えで一息・疲れた所を1つ・指の確かめ。"+(wk>=3?"家の床で3分。":"")+"就寝は動かさない。アラームは07:45前後"],
+   [5,"金","起床07:45前後（主の手）。稽古翌日の版（弱）。弾くのは開放弦の全弓とゆっくりした音階だけ"+(wk>=4?"。昼に横になる":"")],
+   [6,"土","通常の版へ戻る。細かい練習はここ"],
+   [0,"日","通常の版"]];
+  for(var i=0;i<rows.length;i++)s+="<div class='day"+(rows[i][0]===w?" today":"")+"'><b>"+rows[i][1]+"</b> "+rows[i][2]+"</div>";
+  s+="<div class='banner'>毎朝、起きて30分以内に外の光（どの曜日も同じ）。稽古の無い木曜は、通常の版のまま。</div>";
+  s+="<h2>4週の足し方</h2>";
+  var W=[["1週目","5つの窓で吐けるかを見て、止まっていたら一息。練習前の3分（録る・7工程・録る・一言）。稽古の夜は着替えで一息・疲れた所・指、翌朝は07:45前後に起きて開放弦の全弓とゆっくりした音階だけ。"],
+   ["2週目","布団の1分で版を選ぶ。合図を1つ決めて練習前の3分の最後に重ね、基準の録音を1本選ぶ。寝る前の3分。指先の一点と待つ手を足す。稽古の前の3分（この週に置くのは私の割り振り）。"],
+   ["3週目","通常の朝に立って2分。稽古の夜に床の3分、稽古翌日の版を床の1枚から始める。週の終わりに合図だけの録音を1回して聞き比べる。"],
+   ["4週目","火曜と水曜の前借り、金曜の昼に横になる。握って落とすを足す。週の終わりに28行の記録を読み、丸の多かった手を一覧の上へ、一度も動かなかった手は外す。"]];
+  for(var j=0;j<W.length;j++)s+="<div class='day"+(j+1===Math.min(wk,4)?" today":"")+"'><b style='min-width:4em'>"+W[j][0]+"</b> "+W[j][1]+"</div>";
+  s+="<h2>始める日</h2><div class='row'><input type='date' id='startIn' value='"+(S.start||key(today()))+"'><button class='small' id='startSet'>この日にする</button></div><p class='note'>同じ手が2週続けて物差しを動かさなくなったら、その時だけ前の版の「探す日」を開く。</p>";
+  return s;
+}
+function viewHands(d){
+  var wk=Math.max(1,weekNo(d)),s="<p class='note'>息が止まっていた時と、物差しが普段より悪い時に、場所に合う1枚だけ。使ったら同じ物差しへ1回戻り、戻らなければ別の1枚。2枚で戻らなければ、その窓はそこで終える。</p>";
+  for(var i=0;i<HANDS.length;i++)s+=handCard(HANDS[i],wk);
+  s+="<div class='card'><h3>場面ごとの物差し</h3><ul><li>練習とレッスンの前: 開放弦Aの全弓8拍の録音。</li><li>朝と稽古の前: 片足立ち10秒のつき直しの回数と、選んだ中身に合う比べる動き。</li><li>日中の窓: 次の息が引っかからずに吐けるか。</li></ul></div>";
+  return s;
+}
+function viewLog(){
+  var ks=Object.keys(S.days).sort().reverse(),txt="",s="<p class='note'>1日1行。週に1回（合図だけの録音をする日）に7行を読み返し、丸の付いた日に使っていた手を、次の週の最初の1枚にする。</p>";
+  for(var i=0;i<ks.length;i++){var o=S.days[ks[i]],v=resolveVer(parse(ks[i]))||"";if(!o.memo&&!o.maru&&!o.stops&&!Object.keys(o.done||{}).length)continue;
+    var line=ks[i]+"（"+WD[parse(ks[i]).getDay()]+"）"+(v?" "+v:"")+(o.jkd?" 稽古":"")+(o.concert?" 演奏会":"")+" 止まり"+(o.stops||0)+(o.maru?" ◯":"")+(o.memo?" "+o.memo.replace(/\n/g," "):"");
+    txt+=line+"\n";}
+  s+="<div class='card'><div class='log' id='logtxt'>"+(txt?esc(txt):"まだ記録がありません。")+"</div><div class='row'><button class='small' id='copyLog'>全部をコピー</button></div></div>";
+  return s;
+}
+
+/* ---------- 操作 ---------- */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b)return;
+  var d=today(),k=key(d),o=day(k);
+  if(b.dataset.tab){tab=b.dataset.tab;render();window.scrollTo(0,0);return;}
+  if(b.dataset.start!==undefined){S.start=key(addDays(d,+b.dataset.start));save();render();return;}
+  if(b.id==="startSet"){var v=document.getElementById("startIn").value;if(v){S.start=v;save();render();}return;}
+  if(b.dataset.ver){o.ver=b.dataset.ver;save();render();return;}
+  if(b.dataset.jkd){o.jkd=b.dataset.jkd==="1";save();render();return;}
+  if(b.dataset.yjkd){day(key(addDays(d,-1))).jkd=b.dataset.yjkd==="1";save();render();return;}
+  if(b.dataset.concert){o.concert=!o.concert;save();render();return;}
+  if(b.dataset.done){o.done[b.dataset.done]=!o.done[b.dataset.done];save();render();return;}
+  if(b.dataset.stopc){o.stops=(o.stops||0)+1;save();render();return;}
+  if(b.dataset.maru){var r=day(b.dataset.maru);r.maru=!r.maru;save();render();return;}
+  if(b.dataset.timer){startTimer(+b.dataset.timer,b.dataset.tl);return;}
+  if(b.id==="tstop"){stopTimer();return;}
+  if(b.id==="copyLog"){var t=document.getElementById("logtxt").textContent;try{navigator.clipboard.writeText(t).then(function(){b.textContent="コピーしました";},function(){b.textContent="コピーできませんでした";});}catch(x){b.textContent="コピーできませんでした";}return;}
+});
+document.addEventListener("input",function(e){var t=e.target;if(t.dataset&&t.dataset.memo){day(t.dataset.memo).memo=t.value;save();}});
+
+/* ---------- タイマー ---------- */
+var tt=null,tend=0,ac=null;
+function startTimer(sec,label){
+  stopTimer();
+  try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();}catch(x){}
+  tend=Date.now()+sec*1000;
+  document.getElementById("tlabel").textContent=label;
+  document.getElementById("timer").classList.add("show");
+  tick();tt=setInterval(tick,250);
+}
+function tick(){
+  var r=Math.max(0,Math.ceil((tend-Date.now())/1000));
+  document.getElementById("tnum").textContent=Math.floor(r/60)+":"+("0"+(r%60)).slice(-2);
+  if(r<=0){clearInterval(tt);tt=null;beep();document.getElementById("tnum").textContent="終わり";setTimeout(function(){if(!tt)document.getElementById("timer").classList.remove("show");},4000);}
+}
+function stopTimer(){if(tt)clearInterval(tt);tt=null;document.getElementById("timer").classList.remove("show");}
+function beep(){
+  try{if(navigator.vibrate)navigator.vibrate([200,100,200]);}catch(x){}
+  try{if(!ac)return;var t0=ac.currentTime;[0,0.35].forEach(function(dt){var o=ac.createOscillator(),g=ac.createGain();o.frequency.value=660;g.gain.setValueAtTime(0.0001,t0+dt);g.gain.exponentialRampToValueAtTime(0.25,t0+dt+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t0+dt+0.3);o.connect(g);g.connect(ac.destination);o.start(t0+dt);o.stop(t0+dt+0.32);});}catch(x){}
+}
+
+/* 日付が変わったら描き直す */
+var lastKey=key(today());
+setInterval(function(){var k=key(today());if(k!==lastKey){lastKey=k;render();}},60000);
+document.addEventListener("visibilitychange",function(){if(!document.hidden)render();});
+render();
+})();
+</script>
+</body>
+</html>
