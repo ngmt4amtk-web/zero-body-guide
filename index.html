@@ -105,7 +105,9 @@ var WD=["日","月","火","水","木","金","土"];
 function key(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);}
 function parse(k){var p=k.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
 function addDays(d,n){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()+n);return x;}
-function today(){return new Date();}
+/* 1日の区切りは朝4時（稽古の夜は0時を過ぎて寝るため） */
+function today(){return new Date(Date.now()-4*3600000);}
+function nowHour(){var h=new Date().getHours();return h<4?h+24:h;}
 function day(k){if(!S.days[k])S.days[k]={done:{}};if(!S.days[k].done)S.days[k].done={};return S.days[k];}
 function weekNo(d){if(!S.start)return 1;var diff=Math.floor((parse(key(d))-parse(S.start))/86400000);if(diff<0)return 0;return Math.floor(diff/7)+1;}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
@@ -237,7 +239,7 @@ function render(){
   else v.innerHTML=viewLog();
 }
 /* 各まとまりが「次」の候補でいられる時刻の終わり（窓は動作に付くので、楽器は20時、日中の窓は18時まで候補） */
-var SEC_END={"朝":11,"楽器":20,"日中":18,"稽古":25,"夜":25};
+var SEC_END={"朝":11,"楽器":20,"日中":18,"稽古":28,"夜":28};
 function viewToday(d){
   var k=key(d),o=day(k),w=d.getDay(),wk=weekNo(d),s="";
   if(!S.start){
@@ -250,8 +252,8 @@ function viewToday(d){
     s+="<div class='banner'><b>今日、稽古ある？</b><div class='row'><button class='small"+(o.jkd===true?" on":"")+"' data-jkd='1'>ある</button><button class='small"+(o.jkd===false?" on":"")+"' data-jkd='0'>ない</button></div></div>";
   }
   var y=day(key(addDays(d,-1)));
-  if(w===5&&y.jkd===undefined){
-    s+="<div class='banner'><b>昨夜、稽古あった？</b><div class='row'><button class='small' data-yjkd='1'>あった</button><button class='small' data-yjkd='0'>なかった</button></div></div>";
+  if(w===5||y.jkd===true){
+    s+="<div class='banner'><b>昨夜、稽古あった？</b><div class='row'><button class='small"+(y.jkd===true?" on":"")+"' data-yjkd='1'>あった</button><button class='small"+(y.jkd===false?" on":"")+"' data-yjkd='0'>なかった</button></div></div>";
   }
   if(ver==="稽古翌日"){
     s+="<div class='banner'><b>稽古翌日の版</b>（強さは弱）。起きるのは07:45前後。細かい技と体の負荷（筋力・走る・強い打ち込み）は入れない。難所の練習は土曜へ。</div>";
@@ -267,7 +269,7 @@ function viewToday(d){
   if(!SAVE_OK)s+="<div class='banner' style='color:var(--warn)'>この端末では記録を保存できていません（プライベートブラウズ等）。</div>";
   if(o.concert)s+=concertCard();
 
-  var L=items(d),hr=today().getHours(),nextId=null;
+  var L=items(d),hr=nowHour(),nextId=null;
   for(var i=0;i<L.length;i++){if(!o.done[L[i].id]&&SEC_END[L[i].sec]>hr){nextId=L[i].id;break;}}
   if(!nextId)for(var j=0;j<L.length;j++)if(!o.done[L[j].id]){nextId=L[j].id;break;}
   var cur="";
@@ -342,21 +344,23 @@ document.addEventListener("click",function(e){
 document.addEventListener("input",function(e){var t=e.target;if(t.dataset&&t.dataset.memo){day(t.dataset.memo).memo=t.value;save();}});
 
 /* ---------- タイマー ---------- */
-var tt=null,tend=0,ac=null;
+var tt=null,tend=0,ac=null,wl=null;
+function lockOn(){try{if(navigator.wakeLock)navigator.wakeLock.request("screen").then(function(x){wl=x;},function(){});}catch(x){}}
+function lockOff(){try{if(wl)wl.release();}catch(x){}wl=null;}
 function startTimer(sec,label){
   stopTimer();
   try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();}catch(x){}
   tend=Date.now()+sec*1000;
   document.getElementById("tlabel").textContent=label;
   document.getElementById("timer").classList.add("show");
-  tick();tt=setInterval(tick,250);
+  lockOn();tick();tt=setInterval(tick,250);
 }
 function tick(){
   var r=Math.max(0,Math.ceil((tend-Date.now())/1000));
   document.getElementById("tnum").textContent=Math.floor(r/60)+":"+("0"+(r%60)).slice(-2);
-  if(r<=0){clearInterval(tt);tt=null;beep();document.getElementById("tnum").textContent="終わり";setTimeout(function(){if(!tt)document.getElementById("timer").classList.remove("show");},4000);}
+  if(r<=0){clearInterval(tt);tt=null;beep();lockOff();document.getElementById("tnum").textContent="終わり";document.getElementById("tstop").textContent="閉じる";}
 }
-function stopTimer(){if(tt)clearInterval(tt);tt=null;document.getElementById("timer").classList.remove("show");}
+function stopTimer(){if(tt)clearInterval(tt);tt=null;lockOff();document.getElementById("tstop").textContent="止める";document.getElementById("timer").classList.remove("show");}
 function beep(){
   try{if(navigator.vibrate)navigator.vibrate([200,100,200]);}catch(x){}
   try{if(!ac)return;var t0=ac.currentTime;[0,0.35].forEach(function(dt){var o=ac.createOscillator(),g=ac.createGain();o.frequency.value=660;g.gain.setValueAtTime(0.0001,t0+dt);g.gain.exponentialRampToValueAtTime(0.25,t0+dt+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t0+dt+0.3);o.connect(g);g.connect(ac.destination);o.start(t0+dt);o.stop(t0+dt+0.32);});}catch(x){}
